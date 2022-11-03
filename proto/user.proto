@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "example.com/usergrpc;usergrpc";
+
+
+service UserService{
+    rpc CreateUser(NewUser) returns (User) {}
+};
+
+message NewUser {
+    string name = 1;
+    uint32 age = 2;
+}
+
+message User {
+    uint32 id = 1;
+    string name = 2;
+    uint32 age = 3;
+}
